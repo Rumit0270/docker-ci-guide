@@ -45,13 +45,13 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
           with:
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          tags: rumit101/recipe:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
+            context: ./
+            file: ./Dockerfile
+            builder: ${{ steps.buildx.outputs.name }}
+            push: true
+            tags: rumit101/recipe:latest
+            cache-from: type=local,src=/tmp/.buildx-cache
+            cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
